@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
     <link rel="stylesheet" href="assets/vendors/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <!-- Thêm CSS mới để cải thiện giao diện bảng -->
     <style>
         .table-container {
@@ -118,7 +118,12 @@
 .btn-delete:hover {
     background-color: #c62828;
 }
-
+i.fa-solid.fa-cloud-arrow-up {
+    margin-left: auto;
+}
+i.fa-solid.fa-cloud-arrow-down {
+    margin-left: auto;
+}
     </style>
 </head>
 
@@ -171,7 +176,7 @@
                   <span class="font-weight-bold mb-2">Lê Vinh Huy</span>
                   <span class="text-secondary text-small">Admin</span>
                 </div>
-                <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
+                <i class="fa-solid fa-user-tie" style="margin-left: 70px; color: #63E6BE;"></i>
               </a>
             </li>
             <li class="nav-item">
@@ -183,15 +188,15 @@
             <li class="nav-item">
               <a class="nav-link" href="DanhSachNhapKho">
                 <span class="menu-title">Nhập</span>
-                <i class="menu-arrow"></i>
-                <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+                <i class="fa-solid fa-cloud-arrow-down" style="color: #bba8bf;"></i>
+                
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="danh-sach-xuat-kho">
+               <a class="nav-link" href="danh-sach-xuat-kho">
                 <span class="menu-title">Xuất</span>
-                <i class="menu-arrow"></i>
-                <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+               
+               <i class="fa-solid fa-cloud-arrow-up" style="color: #bba8bf;"></i>
               </a>
             </li>
             <li class="nav-item">
@@ -227,7 +232,7 @@
     <h2>Danh sách hàng hóa</h2>
     <div>
         <div style="text-align: center; margin-bottom: 10px;">
-            <a href="addHangHoa.jsp" class="btn">Thêm mới</a>
+            <a href="addHangHoa.jsp" class="btn"><i class="fa-solid fa-plus"></i> Thêm mới</a>
         </div>
     </div>
 
@@ -254,9 +259,9 @@
             <td><%= hh.getSoLuongTon() %></td>
             <td><%= hh.getMaNCC() %></td>
             <td class="action-buttons">
-                <a href="editHangHoa.jsp?maHang=<%= hh.getMaHang() %>" class="btn-edit">Sửa</a>
+                <a href="editHangHoa.jsp?maHang=<%= hh.getMaHang() %>" class="btn-edit"><i class="fa-solid fa-pen-to-square"></i></a>
                 <a href="deleteHangHoa?maHang=<%= hh.getMaHang() %>" class="btn-delete" 
-                   onclick="return confirm('Bạn có chắc chắn muốn xóa?');">Xóa</a>
+                   onclick="return confirm('Bạn có chắc chắn muốn xóa?');"> <i class="fa-solid fa-trash-can"></i></a>
             </td>
         </tr>
         <%

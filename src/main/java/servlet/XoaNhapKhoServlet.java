@@ -11,6 +11,11 @@ import java.io.IOException;
 @WebServlet("/XoaNhapKhoServlet")
 public class XoaNhapKhoServlet extends HttpServlet {
 
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        doPost(request, response); // Chuyển hướng xử lý GET về POST
+    }
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
@@ -30,3 +35,4 @@ public class XoaNhapKhoServlet extends HttpServlet {
         }
     }
 }
+

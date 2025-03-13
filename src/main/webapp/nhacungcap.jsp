@@ -33,6 +33,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="assets/images/favicon.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     
     <style>
         .table-container {
@@ -145,7 +146,12 @@ table {
 .btn-delete:hover {
     background-color: #c62828;
 }
-        
+i.fa-solid.fa-cloud-arrow-up {
+    margin-left: auto;
+}
+i.fa-solid.fa-cloud-arrow-down {
+    margin-left: auto;
+}        
     </style>
   </head>
   <body>
@@ -197,7 +203,7 @@ table {
                   <span class="font-weight-bold mb-2">Lê Vinh Huy</span>
                   <span class="text-secondary text-small">Admin</span>
                 </div>
-                <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
+                 <i class="fa-solid fa-user-tie" style="margin-left: 70px; color: #63E6BE;"></i>
               </a>
             </li>
             <li class="nav-item">
@@ -209,15 +215,15 @@ table {
             <li class="nav-item">
               <a class="nav-link" href="DanhSachNhapKho">
                 <span class="menu-title">Nhập</span>
-                <i class="menu-arrow"></i>
-                <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+                <i class="fa-solid fa-cloud-arrow-down" style="color: #bba8bf;"></i>
+                
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="danh-sach-xuat-kho">
+               <a class="nav-link" href="danh-sach-xuat-kho">
                 <span class="menu-title">Xuất</span>
-                <i class="menu-arrow"></i>
-                <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+               
+               <i class="fa-solid fa-cloud-arrow-up" style="color: #bba8bf;"></i>
               </a>
             </li>
             <li class="nav-item">
@@ -252,7 +258,7 @@ table {
             <div class="table-container">
     <h2>Danh Sách Nhà Cung Cấp</h2>
 	<div style="text-align: center; margin-bottom: 10px;">
-    <a href="themNhaCungCap.jsp" class="btn">Thêm Nhà Cung Cấp</a>
+    <a href="themNhaCungCap.jsp" class="btn"><i class="fa-solid fa-plus"></i> Thêm Nhà Cung Cấp</a>
 </div>
 	
     <%
@@ -282,14 +288,15 @@ table {
                 <td><%= ncc.getSoDienThoai() %></td>
                 
           <td class="action-buttons">
-    <a href="editNhaCungCap.jsp?maNCC=<%= ncc.getMaNCC() %>" class="btn-edit">Sửa</a>
-    
-    <form action="NhaCungCapServlet" method="post" style="display:inline;">
-        <input type="hidden" name="action" value="delete">
-        <input type="hidden" name="maNCC" value="<%= ncc.getMaNCC() %>">
-        <button type="submit" class="btn-delete" onclick="return confirm('Bạn có chắc muốn xóa không?');">Xóa</button>
-    </form>
+    <a href="editNhaCungCap.jsp?maNCC=<%= ncc.getMaNCC() %>" class="btn-edit">
+        <i class="fa-solid fa-pen-to-square"></i>
+    </a>
+    <a href="deleteNhaCungCap?maNCC=<%= ncc.getMaNCC() %>" class="btn-delete" 
+       onclick="return confirm('Bạn có chắc chắn muốn xóa?');">
+        <i class="fa-solid fa-trash-can"></i>
+    </a>
 </td>
+
 
             </tr>
             <%
