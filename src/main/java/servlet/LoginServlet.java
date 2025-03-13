@@ -34,13 +34,17 @@ public class LoginServlet extends HttpServlet {
                 session.setAttribute("username", username);
                 session.setAttribute("role", rs.getInt("LVH_RoleID"));
 
-                // Chuyển hướng đến `hanghoa.jsp`
+                // Chuyển hướng đến `index.jsp`
                 response.sendRedirect("index.jsp");
             } else {
-                response.getWriter().println("Sai tài khoản hoặc mật khẩu!");
+                // Trả về lỗi đăng nhập
+                request.setAttribute("errorMessage", "Tài khoản hoặc mật khẩu sai!");
+                request.getRequestDispatcher("login.jsp").forward(request, response);
             }
         } catch (Exception e) {
             e.printStackTrace();
+            request.setAttribute("errorMessage", "Lỗi hệ thống! Vui lòng thử lại sau.");
+            request.getRequestDispatcher("login.jsp").forward(request, response);
         }
     }
 }

@@ -1,3 +1,4 @@
+
 <!--Author: W3layouts
 Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
@@ -31,44 +32,44 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<!--form-stars-here-->
 						<div class="form-w3-agile">
 							<h2>login Now</h2>
-							<% 
-								    String errorMessage = (String) request.getAttribute("errorMessage"); 
-								    String successMessage = request.getParameter("message"); 
-								%>
-								
-								<% if (successMessage != null) { %>
-								    <div style="color: green; text-align: center; margin-bottom: 10px;">
-								        <%= successMessage %>
-								    </div>
-								<% } %>
-								
+							<% String errorMessage = (String) request.getAttribute("errorMessage"); %>
 								<% if (errorMessage != null) { %>
 								    <div style="color: red; text-align: center; margin-bottom: 10px;">
 								        <%= errorMessage %>
 								    </div>
 								<% } %>
-
 							
-							<form action="LoginServlet" method="post">
-								<div class="form-sub-w3">
-									<input type="text" name="username" placeholder="Username " required="" />
-								<div class="icon-w3">
-									<i class="fa fa-user" aria-hidden="true"></i>
-								</div>
-								</div>
-								<div class="form-sub-w3">
-									<input type="password" name="password" placeholder="Password" required="" />
-								<div class="icon-w3">
-									<i class="fa fa-unlock-alt" aria-hidden="true"></i>
-								</div>
-								</div>
-								<p class="p-bottom-w3ls">Forgot Password?<a class href="#">  Click here</a></p>
-								<p class="p-bottom-w3ls1">New User?<a class href="register.jsp">  Register here</a></p>
-								<div class="clear"></div>
-								<div class="submit-w3l">
-									<input type="submit" value="Login">
-								</div>
-							</form>
+							<h2 style="color: #2c3e50; text-align: center; font-size: 26px; margin-bottom: 15px;">Đăng ký tài khoản</h2>
+
+<% String message = (String) request.getAttribute("message"); %>
+<% if (message != null) { %>
+    <p style="color: red; text-align: center; font-weight: bold;"><%= message %></p>
+<% } %>
+
+<form action="RegisterServlet" method="post">
+    <label style="font-weight: bold; color: white;">Tên đăng nhập:</label>
+    <input type="text" name="username" required style="width: 100%; padding: 8px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc; background-color: white;">
+
+    <label style="font-weight: bold; color: white;">Email:</label>
+    <input type="email" name="email" style="width: 100%; padding: 8px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc; background-color: white;">
+
+    <label style="font-weight: bold; color: white;">Họ và tên:</label>
+    <input type="text" name="fullname" required style="width: 100%; padding: 8px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc; background-color: white;">
+
+    <label style="font-weight: bold; color: white;">Mật khẩu:</label>
+    <input type="password" name="password" required style="width: 100%; padding: 8px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc; background-color: white;">
+	
+	<label style="font-weight: bold; color: white;">Nhập lại mật khẩu:</label>
+    <input type="password" name="confirmPassword" required style="width: 100%; padding: 8px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc; background-color: white; color: black;">
+    
+    <button type="submit" style="width: 100%; padding: 10px; border: none; border-radius: 5px; background-color: #3498db; color: white; font-size: 16px; cursor: pointer;">
+        Đăng ký
+    </button>
+</form>
+
+
+<p style="text-align: center; margin-top: 15px; color: white">Đã có tài khoản? <a href="login.jsp" style="color: #3498db; text-decoration: none; font-weight: bold;">Đăng nhập</a></p>
+
 							<div class="social w3layouts">
 								<div class="heading">
 									<h5>Or Login with</h5>
