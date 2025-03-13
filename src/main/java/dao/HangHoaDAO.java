@@ -32,6 +32,7 @@ public class HangHoaDAO {
         }
         return danhSachHangHoa;
     }
+
     public HangHoa getHangHoaById(int maHang) {
         HangHoa hangHoa = null;
         String query = "SELECT * FROM lvh_hanghoa WHERE LVH_MaHang = ?";
@@ -58,8 +59,9 @@ public class HangHoaDAO {
         }
         return hangHoa;
     }
+
     public boolean addHangHoa(HangHoa hangHoa) {
-        String query = "INSERT INTO lvh_hanghoa (LVH_TenHang, LVH_LoaiHang, LVH_DonViTinh, LVH_SoLuongTon, LVH_MaNCC) VALUES (?, ?, ?, ?, ?)";
+        String query = "INSERT INTO lvh_hanghoa (LVH_TenHang, LVH_LoaiHang, LVH_DonViTinh, LVH_SoLuongTon, LVH_HinhAnh, LVH_MaNCC) VALUES (?, ?, ?, ?, ?, ?)";
 
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(query)) {
@@ -68,15 +70,16 @@ public class HangHoaDAO {
             stmt.setString(2, hangHoa.getLoaiHang());
             stmt.setString(3, hangHoa.getDonViTinh());
             stmt.setInt(4, hangHoa.getSoLuongTon());
-            stmt.setInt(5, hangHoa.getMaNCC());
+            stmt.setString(5, hangHoa.getHinhAnh());
+            stmt.setInt(6, hangHoa.getMaNCC());
 
-            int rowsAffected = stmt.executeUpdate();
-            return rowsAffected > 0;
+            return stmt.executeUpdate() > 0;
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return false;
     }
+
     public boolean deleteHangHoa(int maHang) {
         String query = "DELETE FROM lvh_hanghoa WHERE LVH_MaHang = ?";
 
@@ -84,9 +87,7 @@ public class HangHoaDAO {
              PreparedStatement stmt = conn.prepareStatement(query)) {
 
             stmt.setInt(1, maHang);
-
-            int rowsAffected = stmt.executeUpdate();
-            return rowsAffected > 0;
+            return stmt.executeUpdate() > 0;
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -94,25 +95,23 @@ public class HangHoaDAO {
     }
 
     public boolean updateHangHoa(HangHoa hangHoa) {
-        String query = "UPDATE lvh_hanghoa SET LVH_TenHang = ?, LVH_LoaiHang = ?, LVH_DonViTinh = ?, LVH_SoLuongTon = ?, LVH_MaNCC = ? WHERE LVH_MaHang = ?";
+        String sql = "UPDATE lvh_hanghoa SET LVH_TenHang = ?, LVH_LoaiHang = ?, LVH_DonViTinh = ?, LVH_SoLuongTon = ?, LVH_HinhAnh = ?, LVH_MaNCC = ? WHERE LVH_MaHang = ?";
 
         try (Connection conn = DatabaseConnection.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(query)) {
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            
+            ps.setString(1, hangHoa.getTenHang());
+            ps.setString(2, hangHoa.getLoaiHang());
+            ps.setString(3, hangHoa.getDonViTinh());
+            ps.setInt(4, hangHoa.getSoLuongTon());
+            ps.setString(5, hangHoa.getHinhAnh());
+            ps.setInt(6, hangHoa.getMaNCC());
+            ps.setInt(7, hangHoa.getMaHang());
 
-            stmt.setString(1, hangHoa.getTenHang());
-            stmt.setString(2, hangHoa.getLoaiHang());
-            stmt.setString(3, hangHoa.getDonViTinh());
-            stmt.setInt(4, hangHoa.getSoLuongTon());
-            stmt.setInt(5, hangHoa.getMaNCC());
-            stmt.setInt(6, hangHoa.getMaHang());
-
-            int rowsAffected = stmt.executeUpdate();
-            return rowsAffected > 0;
+            return ps.executeUpdate() > 0;
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return false;
     }
-
-    
 }

@@ -29,6 +29,16 @@ i.fa-solid.fa-cloud-arrow-up {
 i.fa-solid.fa-cloud-arrow-down {
     margin-left: auto;
 }
+.huy-le-image {
+    width: 100%; /* Chiều rộng tối đa */
+    max-width: 600px; /* Giới hạn kích thước ảnh */
+    height: auto; /* Đảm bảo ảnh không bị méo */
+    display: block; /* Căn giữa ảnh */
+    margin: 20px auto; /* Cách lề trên/dưới 20px, căn giữa */
+    border-radius: 10px; /* Bo góc nhẹ để ảnh trông đẹp hơn */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Đổ bóng nhẹ */
+}
+
 </style>
 <!DOCTYPE html>
 <html lang="en">
@@ -156,10 +166,14 @@ i.fa-solid.fa-cloud-arrow-down {
             </div>
             
            <div class="huy-le-container">
-			  <h1>2210900106 - Lê Vinh Huy - K22CNT2</h1>
-			  <h2>Quản lý kho Hàng</h1>
-			  
-			</div>
+    <h1>2210900106 - Lê Vinh Huy - K22CNT2</h1>
+    <h2>Quản lý kho Hàng</h2>
+    
+    <!-- Ảnh lớn, đẹp, căn giữa -->
+    <img src="images/quanlykhohang.png" alt="Logo Quản lý kho hàng" class="huy-le-image">
+</div>
+
+
 
            
             </div>

@@ -97,36 +97,46 @@
 <body>
     <div class="form-container">
         <h2>Sửa Hàng Hóa</h2>
-        <form action="editHangHoa" method="post">
-            <input type="hidden" name="maHang" value="<%= hangHoa.getMaHang() %>">
-            
-            <div class="form-group">
-                <label for="tenHang">Tên hàng:</label>
-                <input type="text" name="tenHang" value="<%= hangHoa.getTenHang() %>" required>
-            </div>
+        <form action="editHangHoa" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="maHang" value="<%= hangHoa.getMaHang() %>">
+    
+    <div class="form-group">
+        <label for="tenHang">Tên hàng:</label>
+        <input type="text" name="tenHang" value="<%= hangHoa.getTenHang() %>" required>
+    </div>
 
-            <div class="form-group">
-                <label for="loaiHang">Loại hàng:</label>
-                <input type="text" name="loaiHang" value="<%= hangHoa.getLoaiHang() %>" required>
-            </div>
+    <div class="form-group">
+        <label for="loaiHang">Loại hàng:</label>
+        <input type="text" name="loaiHang" value="<%= hangHoa.getLoaiHang() %>" required>
+    </div>
 
-            <div class="form-group">
-                <label for="donViTinh">Đơn vị tính:</label>
-                <input type="text" name="donViTinh" value="<%= hangHoa.getDonViTinh() %>" required>
-            </div>
+    <div class="form-group">
+        <label for="donViTinh">Đơn vị tính:</label>
+        <input type="text" name="donViTinh" value="<%= hangHoa.getDonViTinh() %>" required>
+    </div>
 
-            <div class="form-group">
-                <label for="soLuongTon">Số lượng tồn:</label>
-                <input type="number" name="soLuongTon" value="<%= hangHoa.getSoLuongTon() %>" required>
-            </div>
+    <div class="form-group">
+        <label for="soLuongTon">Số lượng tồn:</label>
+        <input type="number" name="soLuongTon" value="<%= hangHoa.getSoLuongTon() %>" required>
+    </div>
 
-            <div class="form-group">
-                <label for="maNCC">Mã nhà cung cấp:</label>
-                <input type="number" name="maNCC" value="<%= hangHoa.getMaNCC() %>" required>
-            </div>
+    <div class="form-group">
+        <label for="maNCC">Mã nhà cung cấp:</label>
+        <input type="number" name="maNCC" value="<%= hangHoa.getMaNCC() %>" required>
+    </div>
 
-            <button type="submit">Sửa</button>
-        </form>
+	      <div class="form-group">
+	    <label for="hinhAnh">Ảnh hàng hóa hiện tại:</label>
+	    <% if (hangHoa.getHinhAnh() != null && !hangHoa.getHinhAnh().isEmpty()) { %>
+	       <img src="uploads/<%= hangHoa.getHinhAnh() %>" alt="Ảnh hàng hóa" width="150">
+
+	    <% } %>
+	    <input type="file" name="hinhAnh">
+	</div>
+
+    <button type="submit">Sửa</button>
+</form>
+
         <a href="hanghoa" class="btn-back">Quay về trang chủ</a>
     </div>
 </body>

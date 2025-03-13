@@ -93,29 +93,35 @@
 <body>
     <div class="form-container">
         <h2>Thêm Hàng Hóa</h2>
-        <form action="addHangHoa" method="post">
-            <div class="form-group">
-                <label for="tenHang">Tên hàng:</label>
-                <input type="text" name="tenHang" required>
-            </div>
-            <div class="form-group">
-                <label for="loaiHang">Loại hàng:</label>
-                <input type="text" name="loaiHang" required>
-            </div>
-            <div class="form-group">
-                <label for="donViTinh">Đơn vị tính:</label>
-                <input type="text" name="donViTinh" required>
-            </div>
-            <div class="form-group">
-                <label for="soLuongTon">Số lượng tồn:</label>
-                <input type="number" name="soLuongTon" required>
-            </div>
-            <div class="form-group">
-                <label for="maNCC">Mã nhà cung cấp:</label>
-                <input type="number" name="maNCC" required>
-            </div>
-            <button type="submit">Thêm</button>
-        </form>
+       <form action="addHangHoa" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="tenHang">Tên hàng:</label>
+        <input type="text" name="tenHang" required>
+    </div>
+    <div class="form-group">
+        <label for="loaiHang">Loại hàng:</label>
+        <input type="text" name="loaiHang" required>
+    </div>
+    <div class="form-group">
+        <label for="donViTinh">Đơn vị tính:</label>
+        <input type="text" name="donViTinh" required>
+    </div>
+    <div class="form-group">
+        <label for="soLuongTon">Số lượng tồn:</label>
+        <input type="number" name="soLuongTon" required>
+    </div>
+    <div class="form-group">
+        <label for="maNCC">Mã nhà cung cấp:</label>
+        <input type="number" name="maNCC" required>
+    </div>
+    <div class="form-group">
+        <label for="hinhAnh">Hình ảnh:</label>
+        <input type="file" name="hinhAnh" accept="image/*" required>
+    </div>
+    <button type="submit">Thêm hàng hóa</button>
+</form>
+
+
         <a href="hanghoa" class="btn-back">Quay về</a>
     </div>
 </body>

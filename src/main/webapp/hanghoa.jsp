@@ -244,6 +244,7 @@ i.fa-solid.fa-cloud-arrow-down {
             <th>Đơn vị tính</th>
             <th>Số lượng tồn</th>
             <th>Mã nhà cung cấp</th>
+            <th>Hình ảnh</th>     
             <th>Hành động</th>
         </tr>
         <%
@@ -258,6 +259,12 @@ i.fa-solid.fa-cloud-arrow-down {
             <td><%= hh.getDonViTinh() %></td>
             <td><%= hh.getSoLuongTon() %></td>
             <td><%= hh.getMaNCC() %></td>
+           <td> <% if (hh.getHinhAnh() != null && !hh.getHinhAnh().isEmpty()) { %>
+			    <img src="images/<%= hh.getHinhAnh() %>" alt="Hình ảnh" width="50" height="50">
+			<% } else { %>
+			    <img src="images/no-image.png" alt="Không có ảnh" width="50" height="50">
+			<% } %>
+			</td>
             <td class="action-buttons">
                 <a href="editHangHoa.jsp?maHang=<%= hh.getMaHang() %>" class="btn-edit"><i class="fa-solid fa-pen-to-square"></i></a>
                 <a href="deleteHangHoa?maHang=<%= hh.getMaHang() %>" class="btn-delete" 
